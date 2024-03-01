@@ -1,25 +1,35 @@
+body{
+  max-width: 1200px;
+}
 .header{
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 40px;
 }
+.head_btn{
+  display: flex;
+  text-align: center;
+}
 .head_btn_01{
   width: 250px;
-  text-align: center;
   background-color: #fc7889;
   color: #fff;
   padding: 20px;
+  margin-right: 20px;
 }
 .head_btn_02{
   width: 250px;
-  text-align: center;
   background-color: #146e32;
   color: #fff;
   padding: 20px;
 }
 .mv_content{
   display: flex;
+  justify-content: center;
+}
+.menu{
+  padding: 30px 120px;
 }
 img{
   vertical-align: bottom;
@@ -29,7 +39,6 @@ img{
   margin: 80px 0;
 }
 .wrapper{
-  max-width: 1200px;
   width: 100%;
   margin-right: auto;
   margin-left: auto;
@@ -40,12 +49,14 @@ img{
 }
 .sec_01_box {
   display: flex;
+  margin: 0px 40px;
 }
 .sec_01_left {
-  width: 48%;
+  width: 68%;
+  align-self: center;
 }
 .sec_01_right {
-  width: 48%;
+  width: 30%;
 }
 .sec_02 {
   margin: 80px 0;
