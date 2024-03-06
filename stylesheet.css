@@ -178,11 +178,14 @@ img{
   border-top: 1px solid #cccccc;
 }
 .sec_06_box_01{
+  display: flex;
+  justify-content: space-between;
   margin-top: 50px;
   margin-bottom: 10px;
 }
 .sec_06_box_02{
   margin-bottom: 100px;
+  text-align: right;
 }
 footer{
   border-top: 1px solid #cccccc;
