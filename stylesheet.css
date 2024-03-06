@@ -174,12 +174,18 @@ img{
   line-height: 1.5;
 }
 .sec_06{
-  
+  margin-top: 80px;
+  border-top: 1px solid #cccccc;
 }
-footer p {
-  text-align: center;
-  font-size: 12px;
-  padding: 20px 0;
+.sec_06_box_01{
+  margin-top: 50px;
+  margin-bottom: 10px;
+}
+.sec_06_box_02{
+  margin-bottom: 100px;
+}
+footer{
+  border-top: 1px solid #cccccc;
 }
 footer p {
   text-align: center;
