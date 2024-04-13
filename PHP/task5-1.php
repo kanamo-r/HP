@@ -9,14 +9,16 @@
 
   <h1>九九の計算</h1>
   
+  <table>
   <?php
   for ($i = 1; $i <= 9; $i++) {
     for ($j = 1; $j <= 9; $j++) {
-        echo $i . " × " . $j . " = " . $i * $j . "\n";
+        echo $i . " × " . $j . " = " . $i * $j . "</td>";
     }
     echo "\n";
   }
   ?>
+  </table>
 
 </body>
 </html>

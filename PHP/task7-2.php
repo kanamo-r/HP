@@ -27,7 +27,7 @@
     }
 
     public function show() {
-        printf("(%s) %s %d歳 %s性\n", $this->id, $this->name, $this->age, $this->sex);
+        printf("(%s) %s %d歳 %s性<br>", $this->id, $this->name, $this->age, $this->sex);
     }
   }
 
@@ -45,7 +45,7 @@
     }
 
     public function show() {
-        printf("(%s) %s %d歳 %s性 時給：%s円\n", $this->id, $this->name, $this->age, $this->sex, $this->jikyu);
+        printf("(%s) %s %d歳 %s性 時給：%s円<br>", $this->id, $this->name, $this->age, $this->sex, $this->jikyu);
     }
   }
 

@@ -26,7 +26,6 @@ body{
 }
 .mv_content{
   display: flex;
-  justify-content: center;
 }
 .menu{
   padding: 30px 120px;
@@ -56,13 +55,13 @@ img{
   border-top: 1px solid #cccccc;
 }
 .sec_02_tbl tr {
-  display: flex;
   justify-content: space-between;
+  display: flex;
   margin: 30px 0px;
 }
 .sec_02_tbl {
+  width: 100%;
   display: flex;
-  justify-content: space-between;
   margin: 30px 0px;
   border-bottom: 1px solid #cccccc;
 }
@@ -96,7 +95,6 @@ img{
 input {
   border: 1px solid #cccccc;
 }
-
 
 select {
   border: 1px solid #cccccc;
