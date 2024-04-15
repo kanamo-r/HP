@@ -39,10 +39,28 @@
       </div>
     </section>
 
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $name = $_POST['name'];
-  echo "送信が完了しました。";
+  <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+      $dsn = 'mysql:dbname=consumer;host=localhost;charset=utf8';
+      $user = 'ユーザー名';
+      $password = 'パスワード';
+
+    try {
+      $dbh = new PDO($dsn, $user, $password);
+
+      $sql = 'INSERT INTO テーブル名 (id, 各入力されたデータ, 日時) VALUES (:id, :data, :datetime)';
+      $stmt = $dbh->prepare($sql);
+
+      $stmt->bindValue(':id', $_POST['id'], PDO::PARAM_STR);
+      $stmt->bindValue(':data', $_POST['data'], PDO::PARAM_STR);
+      $stmt->bindValue(':datetime', date('Y-m-d H:i:s'), PDO::PARAM_STR);
+
+      $stmt->execute();
+
+      echo '送信完了しました。';
+    } catch (PDOException $e) {
+      echo 'データベースエラー: ' . $e->getMessage();
+    }
 }
 ?>
 
@@ -95,6 +113,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <footer>
     <p>ここには会社名が入ります©Copyright.</p>
   </footer>
-
 </body>
 </html>

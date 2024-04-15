@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </section>
     <section class="sec_02">
       <div class="wrapper">
-        <form action="task8-1.php" method="POST">
+        <form action="task9-1.php" method="POST">
           <table class="sec_02_tbl">
             <tr>
               <th class="sec_02_left">
