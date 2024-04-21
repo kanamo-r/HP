@@ -11,9 +11,9 @@
 
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $name = $_POST['name'];
-  echo "名前: " . htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
+  $name = $_POST['お名前'];
 }
+var_dump($name);
 ?>
 
   <header>
@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </section>
     <section class="sec_02">
       <div class="wrapper">
-        <form action="task9-1.php" method="POST">
+        <form action="task8-1.php" method="POST">
           <table class="sec_02_tbl">
             <tr>
               <th class="sec_02_left">
@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <p>必須</p>
               </th>
               <td class="sec_02_right">
-                <input type="text" name="お名前" placeholder="山田太郎" required />
+                <input type="text" name="お名前" placeholder="　山田太郎">
               </td>
             </tr>
             <tr>
@@ -67,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <p>必須</p>
               </th>
               <td class="sec_02_right">
-                <input type="text" name="フリガナ" placeholder="ヤマダタロウ" required />
+                <input type="text" name="フリガナ" placeholder="　ヤマダタロウ">
               </td>
             </tr>
             <tr>
@@ -76,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <p>必須</p>
               </th>
               <td class="sec_02_right">
-                <input type="email" name="メールアドレス" placeholder="info@fast-creademy.jp" required />
+                <input type="text" name="メールアドレス" placeholder="　info@fast-creademy.jp">
               </td>
             </tr>
             <tr>
@@ -85,7 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <p>必須</p>
               </th>
               <td class="sec_02_right">
-                <input type="text" name="電話番号" placeholder="info@fast-creademy.jp" required />
+                <input type="text" name="電話番号" placeholder="　info@fast-creademy.jp">
               </td>
             </tr>
             <tr>
@@ -94,11 +94,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <p>必須</p>
               </th>
               <td class="sec_02_right">
-                <select name="お問い合わせ項目" placeholder="ここに文字を入力" required>
-                  <option value="1">選択してください</option>
-                  <option value="2">選択肢1</option>
-                  <option value="3">選択肢2</option>
-                  <option value="4">選択肢3</option>
+                <select name="お問い合わせ項目">
+                  <option value="1">　選択してください</option>
+                  <option value="2">　選択肢1</option>
+                  <option value="3">　選択肢2</option>
+                  <option value="4">　選択肢3</option>
                 </select>
               </td>
             </tr>
@@ -108,21 +108,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <p>必須</p>
               </th>
               <td class="sec_02_right_0">
-                <textarea type="text" placeholder="こちらにお問い合わせ内容をご記入ください">
-                </textarea>
+                <textarea type="text" cols="30" rows="10" placeholder="　こちらにお問い合わせ内容をご記入ください"></textarea>
               </td>
             </tr>
             <tr>
-              <td class="sec_02_left">
+              <th class="sec_02_left">
                 <h3>個人情報保護方針</h3>
                 <p>必須</p>
-              </td>
+              </th>
               <td class="sec_02_right_1">
-                <input type="checkbox" name="example" value="1"><a class="sec_02_n0" href="">個人情報保護方針</a>に同意します。
+                <input class="sec_02_check" type="checkbox" name="example" value="1"><a class="sec_02_n0" href="">個人情報保護方針</a>に同意します。
               </td>
             </tr>
           </table>
-          <input class="sec_02_btn" type="submit" value="送信">
+          <input class="sec_02_btn" type="submit" value="確認">
         </form>
       </div>
     </section>
