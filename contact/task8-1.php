@@ -11,9 +11,38 @@
 
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $name = $_POST['お名前'];
+  $name = $_POST['name'];
+  $furigana = $_POST['furigana'];
+  $mail = $_POST['mail'];
+  $tel = $_POST['tel'];
+  $select = $_POST['select'];
+  $otoiawase = $_POST['otoiawase'];
+  $check = $_POST['check'];
 }
+$required_fields = [$name, $furigana, $mail, $tel, $select, $otoiawase, $check];
+
+$all_fields_filled = true;
+$missing_fields = [];
+foreach ($required_fields as $field) {
+    if (empty($form_data[$field])) {
+        $all_fields_filled = false;
+        $missing_fields[] = $field;
+    }
+}
+$mail_valid = strpos($mail, '@') !== false;
+$tel_valid = preg_match('/^\d{10,11}$/', $tel);
+
+$button_label = $all_fields_filled && $mail_valid && $tel_valid ? '送信' : '確認';
+
+/*
 var_dump($name);
+var_dump($furigana);
+var_dump($mail);
+var_dump($tel);
+var_dump($select);
+var_dump($otoiawase);
+var_dump($check);
+*/
 ?>
 
   <header>
@@ -45,6 +74,18 @@ var_dump($name);
             <br>
             後ほど担当者よりご連絡させていただきます。
           </p>
+          <?php
+          if (!$all_fields_filled) {
+            $missing_fields_list = implode(', ', $missing_fields);
+          }
+          echo "<p style='color: red; text-align: center;'>以下の項目が未入力です: $missing_fields_list。これらの項目を埋めてください。</p>"; 
+          if (!$mail_valid) {
+            echo "<p style='color: red; text-align: center;'>メールアドレスが正しくありません。@を含む有効なメールアドレスを入力してください。</p>";
+          }
+          if (!$tel_valid) {
+            echo "<p style='color: red; text-align: center;'>電話番号が正しくありません。10桁または11桁の有効な電話番号を入力してください。</p>";
+          }
+          ?>
         </div>
       </div>
     </section>
@@ -121,7 +162,7 @@ var_dump($name);
               </td>
             </tr>
           </table>
-          <input class="sec_02_btn" type="submit" value="確認">
+          <input class="sec_02_btn" type="submit" value=<?= $button_label ?>>
         </form>
       </div>
     </section>
