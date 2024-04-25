@@ -34,7 +34,6 @@ $tel_valid = preg_match('/^\d{10,11}$/', $tel);
 
 $button_label = $all_fields_filled && $mail_valid && $tel_valid ? '送信' : '確認';
 
-/*
 var_dump($name);
 var_dump($furigana);
 var_dump($mail);
@@ -42,7 +41,7 @@ var_dump($tel);
 var_dump($select);
 var_dump($otoiawase);
 var_dump($check);
-*/
+
 ?>
 
   <header>
@@ -78,7 +77,7 @@ var_dump($check);
           if (!$all_fields_filled) {
             $missing_fields_list = implode(', ', $missing_fields);
           }
-          echo "<p style='color: red; text-align: center;'>以下の項目が未入力です: $missing_fields_list。これらの項目を埋めてください。</p>"; 
+            echo "<p style='color: red; text-align: center;'>以下の項目が未入力です: $missing_fields_list 。これらの項目を埋めてください。</p>"; 
           if (!$mail_valid) {
             echo "<p style='color: red; text-align: center;'>メールアドレスが正しくありません。@を含む有効なメールアドレスを入力してください。</p>";
           }
@@ -91,7 +90,10 @@ var_dump($check);
     </section>
     <section class="sec_02">
       <div class="wrapper">
-        <form action="task8-1.php" method="POST">
+        <form action="<?php if ($all_fields_filled && $email_valid && $phone_valid) {
+        header('Location: task9-1.php');
+        exit;
+        }?>" method="POST">
           <table class="sec_02_tbl">
             <tr>
               <th class="sec_02_left">
@@ -99,7 +101,7 @@ var_dump($check);
                 <p>必須</p>
               </th>
               <td class="sec_02_right">
-                <input type="text" name="お名前" placeholder="　山田太郎">
+                <input type="text" name="name" placeholder="　山田太郎" value="<?=$name?>">
               </td>
             </tr>
             <tr>
@@ -108,7 +110,7 @@ var_dump($check);
                 <p>必須</p>
               </th>
               <td class="sec_02_right">
-                <input type="text" name="フリガナ" placeholder="　ヤマダタロウ">
+                <input type="text" name="furigana" placeholder="　ヤマダタロウ" value="<?=$furigana?>">
               </td>
             </tr>
             <tr>
@@ -117,7 +119,7 @@ var_dump($check);
                 <p>必須</p>
               </th>
               <td class="sec_02_right">
-                <input type="text" name="メールアドレス" placeholder="　info@fast-creademy.jp">
+                <input type="text" name="mail" placeholder="　info@fast-creademy.jp" value="<?=$mail?>">
               </td>
             </tr>
             <tr>
@@ -126,7 +128,7 @@ var_dump($check);
                 <p>必須</p>
               </th>
               <td class="sec_02_right">
-                <input type="text" name="電話番号" placeholder="　info@fast-creademy.jp">
+                <input type="text" name="tel" placeholder="　info@fast-creademy.jp" value="<?=$tel?>">
               </td>
             </tr>
             <tr>
@@ -135,9 +137,9 @@ var_dump($check);
                 <p>必須</p>
               </th>
               <td class="sec_02_right">
-                <select name="お問い合わせ項目">
+                <select name="serect">
                   <option value="1">　選択してください</option>
-                  <option value="2">　選択肢1</option>
+                  <option value="2" selected>　選択肢1</option>
                   <option value="3">　選択肢2</option>
                   <option value="4">　選択肢3</option>
                 </select>
@@ -149,7 +151,7 @@ var_dump($check);
                 <p>必須</p>
               </th>
               <td class="sec_02_right_0">
-                <textarea type="text" cols="30" rows="10" placeholder="　こちらにお問い合わせ内容をご記入ください"></textarea>
+                <textarea type="text" name="otoiawase" cols="30" rows="10" placeholder="　こちらにお問い合わせ内容をご記入ください"></textarea>
               </td>
             </tr>
             <tr>
@@ -158,7 +160,7 @@ var_dump($check);
                 <p>必須</p>
               </th>
               <td class="sec_02_right_1">
-                <input class="sec_02_check" type="checkbox" name="example" value="1"><a class="sec_02_n0" href="">個人情報保護方針</a>に同意します。
+                <input class="sec_02_check" type="checkbox" name="check" value="1" <?php if ( ! empty( $clean['check'] ) ) { echo 'checked'; } ?>><a class="sec_02_n0" href="">個人情報保護方針</a>に同意します。
               </td>
             </tr>
           </table>
