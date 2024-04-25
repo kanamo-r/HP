@@ -28,6 +28,18 @@
       (20001, '田中 友子', 24, 'パート')"
     );
 
+    $id = 10004;
+    $name = "川崎 三郎";
+    $age = 35;
+    $work = "社員";
+
+    $stmt = $pdo->prepare("INSERT INTO syain VALUES(?,?,?,?);");
+    $stmt->bindParam(1, $id, PDO::PARAM_INT);
+    $stmt->bindParam(2, $name, PDO::PARAM_STR);
+    $stmt->bindParam(3, $age, PDO::PARAM_INT);
+    $stmt->bindParam(4, $work, PDO::PARAM_STR);
+    $result = $stmt->execute();
+
     $stmt = $pdo->query("SELECT * FROM syain");
     $results = $stmt->fetchAll();
     //print_r($result);
