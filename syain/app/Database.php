@@ -21,4 +21,17 @@ class Database
       );
     )
   }
+
+  function getallsyain()
+  {
+    try {
+      $this->connect();
+      $stmt = $this->pdo->query("SELECT id, name FROM syain ORDER BY id;");
+      $members = $stmt->fetchAll();
+      return $members;
+    } catch(PDOException $e) {
+      echo $e->getMesseage() . '<br>';
+      exit;
+    }
+  }
 }
