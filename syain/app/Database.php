@@ -9,7 +9,7 @@ class Database
 
   private function connect()
   {
-    if (!isset($this->pdo)) (
+    if (!isset($this->pdo)) {
       $this->pdo = new PDO(
         DSN,
         USER,
@@ -19,7 +19,7 @@ class Database
           PDO::ATTR_EMULATE_PREPARES => false
         ]
       );
-    )
+    }
   }
 
   function getallsyain()
