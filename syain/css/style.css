@@ -14,3 +14,11 @@ th {
 td {
   text-align: center;
 }
+
+table {
+  margin-bottom: 3px;
+}
+
+button {
+  margin-top: 30px;
+}
