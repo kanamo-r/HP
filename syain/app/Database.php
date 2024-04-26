@@ -63,4 +63,21 @@ class Database
     }
     return false;
   }
+
+  function createsyain($id, $name, $age, $work)
+  {
+    try {
+      $stmt = $this->pdo->prepare("INSERT INTO syain VALUES(?,?,?,?);");
+      $stmt->bindParam(1, $id, PDO::PARAM_INT);
+      $stmt->bindParam(2, $name, PDO::PARAM_STR);
+      $stmt->bindParam(3, $age, PDO::PARAM_INT);
+      $stmt->bindParam(4, $work, PDO::PARAM_STR);
+      $result = $stmt->execute();
+      return true;
+    } catch(PDOException $e) {
+        echo $e->getMesseage() . '<br>';
+        exit;
+    }
+    return false;
+  }
 }
