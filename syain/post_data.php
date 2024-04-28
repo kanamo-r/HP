@@ -2,7 +2,7 @@
 require_once('common.php');
 
 if (isset($_POST["status"])) {
-  if (isset($_POST[$id])) {
+  if (isset($_POST["id"])) {
     $id = $_POST["id"];
   }
   if (isset($_POST["name"])) {

@@ -30,7 +30,7 @@ class Database
       $members = $stmt->fetchAll();
       return $members;
     } catch(PDOException $e) {
-      echo $e->getMesseage() . '<br>';
+      echo $e->getMessage() . '<br>';
       exit;
     }
   }
@@ -51,7 +51,7 @@ class Database
       }
       return null;
     } catch(PDOException $e) {
-      echo $e->getMesseage() . '<br>';
+      echo $e->getMessage() . '<br>';
       exit;
     }
   }
@@ -75,7 +75,7 @@ class Database
       $result = $stmt->execute();
       return true;
     } catch(PDOException $e) {
-        echo $e->getMesseage() . '<br>';
+        echo $e->getMessage() . '<br>';
         exit;
     }
     return false;
