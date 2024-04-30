@@ -69,8 +69,9 @@ TABLE4;
         <td>{$member{age}}</td>
         <td>{$member{work}}</td>
       </tr>
-    </table>
-  TABLE5;
+TABLE5;
+   }
+  echo '</table>';
 }
 
 function show_update()
