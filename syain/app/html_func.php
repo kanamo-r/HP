@@ -50,6 +50,44 @@ TABLE2;
 TABLE3;
 }
 
+function show_operation($members) 
+{
+  echo <<<TABLE4
+    <table>
+      <tr>
+        <th>社員番号</th>
+        <th>名前</th>
+        <th>年齢</th>
+        <th>労働形態</th>
+      </tr>
+TABLE4;
+    foreach ($members as $member) {
+  echo <<<TABLE5
+      <tr>
+        <td>{$member{id}}</td>
+        <td>{$member{name}}</td>
+        <td>{$member{age}}</td>
+        <td>{$member{work}}</td>
+      </tr>
+    </table>
+  TABLE5;
+}
+
+function show_update()
+{
+  echo <<<TABLE6
+   <a href="syain_update.php">社員情報更新</a>
+TABLE6;
+}
+
+function show_delete()
+{
+  echo <<<TABLE7
+   <a href="syain_delete.php">社員情報削除</a>
+TABLE7;
+}
+
+
 function show_form($id, $name, $age, $work, $old_id, $status, $button)
 {
   $error = "";
@@ -78,30 +116,7 @@ function show_create()
   show_form("","","","","","create","登録");
 }
 
-function show_delete($post)
-{
-  echo "<h1>社員情報削除</h1>";
-  echo "<form action='syain_delete.php' method='post'>";
-  echo "<input type='hidden' name='id' value='{$post->id}'>";
-  echo "<button type='submit'>削除</button>";
-  echo "</form>";
-}
 
-function show_update($post) {
-  echo "<h1>社員情報更新</h1>";
-  echo "<form action='syain_update.php' method='post'>";
-  echo "<input type='hidden' name='id' value='{$post->id}'>";
-  echo "<label>名前：<input type='text' name='name' value='{$post->name}'></label>";
-  echo "<label>年齢：<input type='text' name='age' value='{$post->age}'></label>";
-  echo "<label>雇用形態：<input type='text' name='work' value='{$post->work}'></label>";
-  echo "<button type='submit'>更新</button>";
-  echo "</form>";
-}
 
-function show_operation($post) {
-  echo "<h1>更新・削除の選択</h1>";
-  echo "<a href='syain_update.php?id={$post->id}'>更新</a>";
-  echo "<a href='syain_delete.php?id={$post->id}'>削除</a>";
-}
 
 ?>
