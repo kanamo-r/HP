@@ -77,7 +77,31 @@ function show_create()
   $error = get_error();
   show_form("","","","","","create","登録");
 }
+
+function show_delete($post)
+{
+  echo "<h1>社員情報削除</h1>";
+  echo "<form action='syain_delete.php' method='post'>";
+  echo "<input type='hidden' name='id' value='{$post->id}'>";
+  echo "<button type='submit'>削除</button>";
+  echo "</form>";
+}
+
+function show_update($post) {
+  echo "<h1>社員情報更新</h1>";
+  echo "<form action='syain_update.php' method='post'>";
+  echo "<input type='hidden' name='id' value='{$post->id}'>";
+  echo "<label>名前：<input type='text' name='name' value='{$post->name}'></label>";
+  echo "<label>年齢：<input type='text' name='age' value='{$post->age}'></label>";
+  echo "<label>雇用形態：<input type='text' name='work' value='{$post->work}'></label>";
+  echo "<button type='submit'>更新</button>";
+  echo "</form>";
+}
+
+function show_operation($post) {
+  echo "<h1>更新・削除の選択</h1>";
+  echo "<a href='syain_update.php?id={$post->id}'>更新</a>";
+  echo "<a href='syain_delete.php?id={$post->id}'>削除</a>";
+}
+
 ?>
-
-
-
